@@ -1,2 +1,5 @@
 # shell generator scripts
 *.sh
+
+# sealed secret key
+sealed-secrets-secret.yaml

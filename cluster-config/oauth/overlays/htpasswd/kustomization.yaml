@@ -5,6 +5,7 @@ bases:
   - ../../base
 
 resources:
+  - htpass-sealed-secret.yaml
   - htpass-secret.yaml
 
 patchesJson6902:
