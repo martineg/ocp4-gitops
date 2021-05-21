@@ -1,0 +1,8 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+  - ../../cluster-config/sealed-secrets-operator/overlays/lab
+  - ../../cluster-config/oauth/overlays/htpasswd
+  - ../../cluster-config/groups-roles-bindings/base
+  - ../../cluster-config/cerberus/base
