@@ -3,3 +3,6 @@
 
 # sealed secret key
 sealed-secrets-secret.yaml
+
+# kube
+kubeconfig
