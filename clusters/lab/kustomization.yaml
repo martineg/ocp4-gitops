@@ -5,4 +5,4 @@ resources:
   - ../../cluster-config/sealed-secrets-operator/overlays/lab
   - ../../cluster-config/oauth/overlays/htpasswd
   - ../../cluster-config/groups-roles-bindings/base
-  - ../../cluster-config/cerberus/base
+  - ../../apps/cerberus/base
