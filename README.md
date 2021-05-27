@@ -6,3 +6,11 @@ The repository include configurations to be applied with [Kustomize](https://kus
 
 Inspired by and using resources from the [Red Hat Canada GitOps](https://github.com/redhat-canada-gitops/catalog) and [GitOps Cluster Configuration](https://github.com/gnunn-gitops/cluster-config) repositories.
 
+# Deployment
+
+The lab cluster is bootstrapped as follows
+```
+until ( kustomize build clusters/lab | oc apply -f - ); do
+    sleep 2;
+done
+```
