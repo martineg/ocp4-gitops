@@ -6,3 +6,4 @@ resources:
   - ../../cluster-config/oauth/overlays/htpasswd
   - ../../cluster-config/groups-roles-bindings/base
   - ../../apps/cerberus/base
+  - ../../apps/benchmark-operator/base
