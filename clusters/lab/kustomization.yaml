@@ -6,5 +6,6 @@ resources:
   - ../../cluster-config/oauth/overlays/htpasswd
   - ../../cluster-config/groups-roles-bindings/base
   - ../../cluster-config/descheduler/base
+  - ../../cluster-config/container-security-operator/overlays/quay-3.5
   - ../../apps/cerberus/base
   - ../../apps/benchmark-operator/base

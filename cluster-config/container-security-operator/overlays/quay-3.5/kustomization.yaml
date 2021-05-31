@@ -1,0 +1,14 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+# Remote base.  Use the configuration from the Red Hat Canada GitOps repo (unofficial).
+bases:
+  - ../../base
+
+patchesJson6902:
+  - path: patch-channel-csv.yaml
+    target:
+      group: operators.coreos.com
+      kind: Subscription
+      name: container-security-operator
+      version: v1alpha1
