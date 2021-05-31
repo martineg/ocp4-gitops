@@ -1,0 +1,8 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+    - descheduler-operator-namespace.yaml
+    - descheduler-operator-group.yaml
+    - descheduler-operator-subscription.yaml
+    - descheduler-operator-profile.yaml
