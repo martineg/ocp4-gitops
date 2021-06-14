@@ -1,0 +1,3 @@
+- op: replace
+  path: /spec/startingCSV
+  value: "compliance-operator.v0.1.32"
