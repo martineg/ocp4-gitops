@@ -7,5 +7,6 @@ resources:
   - ../../cluster-config/groups-roles-bindings/base
   - ../../cluster-config/descheduler/base
   - ../../cluster-config/container-security-operator/overlays/quay-3.5
+  - ../../cluster-config/pipeline-operator/overlays/stable
   - ../../apps/cerberus/base
   - ../../apps/benchmark-operator/base
