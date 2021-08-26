@@ -1,0 +1,32 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: 'svc-http-elasticsearch'
+  namespace: my-ripsaw
+  labels:
+    name: 'elasticsearch'
+    component: elasticsearch
+spec:
+  ports:
+    - name: es-http
+      port: 9200
+      targetPort: 9200
+  selector:
+    name: elasticsearch
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: 'svc-transport-elasticsearch'
+  namespace: my-ripsaw
+  labels:
+    name: 'elasticsearch'
+    component: elasticsearch
+spec:
+  ports:
+    - name: es-transport
+      protocol: TCP
+      port: 9300
+      targetPort: 9300
+  selector:
+    name: elasticsearch

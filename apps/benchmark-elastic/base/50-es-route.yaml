@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: v1
+metadata:
+  name: 'elasticsearch'
+  namespace: my-ripsaw
+  annotations:
+    description: "Route for elasticsearch Elasticsearch HTTP API"
+  labels:
+    name: 'elasticsearch'
+    component: elasticsearch
+spec:
+  to:
+    kind: Service
+    name: 'svc-http-elasticsearch'

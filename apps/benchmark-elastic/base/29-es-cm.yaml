@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elastic-config
+  namespace: my-ripsaw
+data:
+  elasticsearch.yml: |
+    cluster.name: "ripsaw-es"
+    network.host: 0.0.0.0
+    transport.host: 127.0.0.1

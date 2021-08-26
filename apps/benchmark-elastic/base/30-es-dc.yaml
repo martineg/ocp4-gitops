@@ -1,0 +1,83 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: elasticsearch
+  namespace: my-ripsaw
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    component: elasticsearch
+    name: elasticsearch
+  strategy:
+    activeDeadlineSeconds: 21600
+    recreateParams:
+      timeoutSeconds: 600
+    resources: {}
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        component: elasticsearch
+        name: elasticsearch
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_TRUST_CERT
+          value: "true"
+        - name: KUBERNETES_CA_CERTIFICATE_FILE
+          value: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        - name: DISCOVERY_SERVICE
+          value: svc-transport-1
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3-amd64
+        imagePullPolicy: IfNotPresent
+        name: elasticsearch
+        ports:
+        - containerPort: 9200
+          name: http
+          protocol: TCP
+        - containerPort: 9300
+          name: transport
+          protocol: TCP
+        resources: {}
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 9200
+          initialDelaySeconds: 30
+          timeoutSeconds: 4
+          periodSeconds: 5
+        securityContext:
+          privileged: false
+          runAsUser: 0
+          capabilities:
+            add: ["SYS_CHROOT"] # https://bugzilla.redhat.com/show_bug.cgi?id=1888227#c4
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /data
+          name: data-1
+        - mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+          name: elastic-config
+          subPath: elasticsearch.yml
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      serviceAccount: elastic
+      serviceAccountName: elastic
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir: {}
+        name: data-1
+      - configMap:
+          defaultMode: 420
+          name: elastic-config
+        name: elastic-config
+  test: false
+  triggers:
+  - type: ConfigChange
