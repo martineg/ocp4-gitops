@@ -3,7 +3,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 
 # Remote base.  Use the configuration from the Red Hat Container CoP GitOps catalog repo (unofficial).
 resources:
-  - github.com/redhat-cop/gitops-catalog/compliance-operator/overlays/4.7?ref=main
+  - github.com/redhat-cop/gitops-catalog/compliance-operator/operator/overlays/release-0.1?ref=main
 
 patchesJson6902:
   - path: patch-version-csv.yaml
