@@ -8,6 +8,6 @@ resources:
   - ../../cluster-config/descheduler/overlays/4.8
   - ../../cluster-config/container-security-operator/overlays/quay-3.5
   - ../../cluster-config/pipeline-operator/overlays/stable
-  - ../../cluster-config/compliance-operator/overlays/4.7
+  - ../../cluster-config/compliance-operator/overlays/release-0.1
   - ../../apps/cerberus/base
   - ../../apps/benchmark-operator/base
