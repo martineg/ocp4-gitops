@@ -5,7 +5,7 @@ resources:
   - ../../cluster-config/sealed-secrets-operator/overlays/lab
   - ../../cluster-config/oauth/overlays/htpasswd
   - ../../cluster-config/groups-roles-bindings/base
-  - ../../cluster-config/descheduler/base
+  - ../../cluster-config/descheduler/overlays/4.8
   - ../../cluster-config/container-security-operator/overlays/quay-3.5
   - ../../cluster-config/pipeline-operator/overlays/stable
   - ../../cluster-config/compliance-operator/overlays/4.7
