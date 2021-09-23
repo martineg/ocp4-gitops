@@ -3,4 +3,4 @@
   value: "quay-v3.5"
 - op: replace
   path: /spec/startingCSV
-  value: "container-security-operator.v3.5.1"
+  value: "container-security-operator.v3.5.6"
